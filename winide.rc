@@ -1,0 +1,101 @@
+//=============================================================================
+// Projet : WinIDE
+// Fichier: winide.rc
+//
+//=============================================================================
+
+#include "resources.h"
+
+
+//=============================================================================
+//                        Icones de l'application
+//=============================================================================
+
+IDI_ICONE ICON DISCARDABLE "icones/ide.ico"
+IDB_OUVRIR BITMAP DISCARDABLE "icones/ouvrir.bmp"
+IDB_ENREGISTRER BITMAP DISCARDABLE "icones/enregistrer.bmp"
+IDB_COMPILER BITMAP DISCARDABLE "icones/compiler.bmp"
+IDB_EXECUTER BITMAP DISCARDABLE "icones/executer.bmp"
+IDB_COMPILER_EXECUTER BITMAP DISCARDABLE "icones/compiler_executer.bmp"
+IDB_OUVRIR_16 BITMAP DISCARDABLE "icones/ouvrir_16.bmp"
+IDB_ENREGISTRER_16 BITMAP DISCARDABLE "icones/enregistrer_16.bmp"
+IDB_COMPILER_16 BITMAP DISCARDABLE "icones/compiler_16.bmp"
+IDB_EXECUTER_16 BITMAP DISCARDABLE "icones/executer_16.bmp"
+IDB_COMPILER_EXECUTER_16 BITMAP DISCARDABLE "icones/compiler_executer_16.bmp"
+IDB_ANNULER BITMAP DISCARDABLE "icones/annuler.bmp"
+IDB_RECOLORIER BITMAP DISCARDABLE "icones/recolorier.bmp"
+IDB_TOUTENNOIR BITMAP DISCARDABLE "icones/tout_en_noir.bmp"
+
+//=============================================================================
+//                             Style XP
+//=============================================================================
+
+1 24 "manifest.xml"
+
+//=============================================================================
+//                         Menu de l'application
+//=============================================================================
+
+IDEMENU MENU
+BEGIN
+   POPUP "Fichier"
+   BEGIN
+      MENUITEM "Ouvrir...\tCtrl+O", IDM_OUVRIR
+      MENUITEM "Enregistrer...\tCtrl+S", IDM_ENREGISTRER
+      MENUITEM "Enregistrer sous...", IDM_ENREGISTRER_SOUS
+      MENUITEM SEPARATOR
+      MENUITEM "Compiler...\tCtrl+F9", IDM_COMPILER
+      MENUITEM "Exécuter...\tCtrl+F10", IDM_EXECUTER
+      MENUITEM "Compiler et éxécuter...", IDM_COMPILER_EXECUTER
+      MENUITEM SEPARATOR
+      MENUITEM "Quitter\tAlt+F4", IDM_QUITTER
+   END
+   POPUP "Edition"
+   BEGIN
+      MENUITEM "Tout sélectionner\tCtrl+A", IDM_TOUT_SELECTIONNER
+      MENUITEM SEPARATOR
+      MENUITEM "Copier\tCtrl+C", IDM_COPIER
+      MENUITEM "Couper\tCtrl+X", IDM_COUPER
+      MENUITEM "Coller\tCtrl+V", IDM_COLLER
+      MENUITEM SEPARATOR
+      MENUITEM "Annuler", IDM_ANNULER
+      MENUITEM SEPARATOR
+      MENUITEM "Coloration syntaxique\t(Bêta !)", IDM_COLORATION
+   END
+   POPUP "Format"
+   BEGIN
+      MENUITEM "Police...", IDM_POLICE
+   END
+   POPUP "Affichage"
+   BEGIN
+      MENUITEM "Barre d'outils", IDM_SHOW_TOOLBAR
+      MENUITEM "Barre d'alignement", IDM_SHOW_LINEBAR
+   END
+   POPUP "Exemple"
+   BEGIN
+      MENUITEM "Hello World !", IDM_EXEMPLE1
+   END
+   POPUP "?"
+   BEGIN
+      MENUITEM "À propos de " NOM_APP "...", IDM_APROPOS
+   END
+END
+
+//=============================================================================
+//                            Apropos DialogBox
+//=============================================================================
+
+APROPOS DIALOGEX 0, 0, 180, 90
+CAPTION "À Propos"
+FONT 10, "Arial", 700, 0
+STYLE  WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU | DS_CENTER
+BEGIN
+     ICON IDI_ICONE, -1, 15, 15, 32, 32
+     LTEXT NOM_APP " " VERSION_APP
+           "\nPar : AXeL"
+           "\nCompatibilité : Windows XP/7"
+           "\nLibre de droit et d'utilisations."
+           "\nContact : axel.prog.25@gmail.com"
+           , -1, 45, 16, 120, 60
+     DEFPUSHBUTTON "Ok", IDOK, 65, 65, 50, 12
+END
